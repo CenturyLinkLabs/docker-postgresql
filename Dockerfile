@@ -38,5 +38,8 @@ RUN touch /firstrun
 RUN mkdir /etc/service/postgresql
 RUN ln -s /scripts/start.sh /etc/service/postgresql/run
 
+# Expose our data, log, and configuration directories.
+VOLUME ["/data", "/var/log/postgresql", "/etc/postgresql"]
+
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
